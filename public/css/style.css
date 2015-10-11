@@ -1,0 +1,81 @@
+body { padding-top:30px; }
+
+.category_cell, .user_cell, .other_user_cell {
+    font-size: 20px; 
+    text-align: left;
+}
+
+.category_cell .name , .user_cell .name {
+    font-size: 30px; 
+    text-align: left;
+}
+
+.other_user_cell .name {
+    font-size: 20px; 
+    text-align: left;
+}
+
+.form  {
+    font-size: 20px; 
+    text-align: left;
+}
+
+
+.form-horizontal div {
+    float: left; 
+    margin:5px;
+}
+
+.form-vertical div{
+    text-align: left; 
+    margin:5px;
+}
+
+.form-vertical input, .form-vertical select, .form-vertical textarea{
+    width: 400px;
+}
+
+.idea_cell {
+    text-align: left;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    background-color: #f6f6f6;
+    border-color: #eeeeee;
+    margin:10px;
+    padding:10px;
+}
+
+.vote {
+    height:40px;
+}
+
+.vote span {
+    margin-left: 20px;
+    display: inline-block;
+    width:100px;
+    margin-top:5px;
+    height:35px;
+    font-size: 20px; 
+}
+
+.vote a {
+    margin-top:5px;
+    width: 30px;
+    height:35px;
+    display: inline-block;
+}
+
+.vote a:hover {
+    margin-top:0;
+    height:35px;
+    font-size: 25px; 
+    decoration:none;
+}
+
+.vote span#up, .vote span#up a {
+    color: #00BFFF;
+}
+
+.vote span#down, .vote span#down a {
+    color: #FF4000;
+}

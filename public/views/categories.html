@@ -1,0 +1,16 @@
+<div ng-include src="'views/header.html'"></div>
+
+<div class="jumbotron text-center">
+	<h1>Categories</h1>
+	<h2>Bring Us Ideas</h2>
+
+    <div class="category_cell" ng-repeat="category in categories track by $index">
+    <a href="#!/categories/{{category._id}}"><span class="name">{{category.name}}</span> :: 
+            <span ng-if="category.ideas">{{category.ideas}} given idea<span ng-if="category.ideas != 1">s</span> in it </span>
+            <span ng-if="!category.ideas">Bring us an awsome idea!</span>
+    </a>
+    </div>
+
+	<p>{{ status }}</p>
+
+</div>

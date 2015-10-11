@@ -1,0 +1,1 @@
+angular.module('ideaApp', ['ngRoute', 'appRoutes', 'ipCookie', 'MainCtrl', 'CategoriesCtrl', 'UsersCtrl', 'IdeaService', 'CategoryService', 'UserService', 'VoteService']);

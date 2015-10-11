@@ -1,0 +1,20 @@
+<div ng-include src="'views/header.html'"></div>
+
+<div class="jumbotron text-center">
+	<h1>Users</h1>
+	<h2>Bring Us Ideas</h2>
+    
+    <div class="user_cell" ng-repeat="user in users | filter: myFilter">
+    <a href="#!/users/{{user._id}}"><span class="name">{{user.name}}</span> :: 
+            {{user.ideas}} idea<span ng-if="user.ideas != 1">s</span>
+    </a>
+    </div>
+    
+    <div class="other_user_cell" ng-repeat="user in users | filter: notmyFilter">
+    <a href="#!/users/{{user._id}}"><span class="name">{{user.name}}</span> :: 
+            {{user.ideas}} idea<span ng-if="user.ideas != 1">s</span>
+    </a>
+    </div>
+
+	<p>{{ status }}</p>
+</div>

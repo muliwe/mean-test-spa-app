@@ -1,0 +1,65 @@
+<div ng-include src="'views/header.html'"></div>
+
+<div class="jumbotron text-center">
+	<h1>Bring Us Ideas</h1>
+	<h2 ng-bind-html="subtitle"></h2>
+
+    <div class="form" ng-if="loggeduser.anonimous">
+    <form class="form-horizontal" ng-submit="saveUser()">
+    <fieldset>
+        <div class="control-group">
+            <input id="add-name" name="name" type="text" required placeholder="Fill your name" ng-model="loggeduser.name"/>
+        </div>
+        <div class="form-actions">
+            <button type="submit" class="btn btn-success"><i class="fa fa-caret-square-o-right fa-lg fa-invers"></i> Save</button>
+        </div>
+    </fieldset>
+    </form>
+    </div>
+    
+    <div class="form" ng-if="!loggeduser.anonimous">
+        You are logged in as <a href="#!/users/{{loggeduser._id}}"><span class="name">{{loggeduser.name}}</span></a>
+    </div>
+    
+    <div class="form" ng-if="postform"> <!-- not show idea form on other user page -->
+    
+    <form class="form-vertical" ng-submit="saveIdea()">
+    <fieldset>
+        <div class="control-group">
+            <input id="add-name" name="name" type="text" required placeholder="What is the idea" ng-model="newidea.name"/>
+        </div>
+        <div class="control-group">
+            <textarea id="add-description" name="description" required placeholder="Describe it" ng-model="newidea.description"></textarea>
+        </div>
+        <div class="control-group" ng-if="!category">
+        <select id="add-category" required name="category" ng-model="newidea.category_id" ng-options="category._id as category.name for category in categories">
+            <option value="">Select category</option>
+        </select>
+        </div>
+        <div class="form-actions">
+            <button type="submit" class="btn btn-success"><i class="fa fa-floppy-o fa-lg fa-invers"></i> Send your idea to us</button>
+        </div>
+    </fieldset>
+    </form>
+    
+    </div>
+
+	<p>{{ status }}</p>
+    
+    <div class="idea_cell" ng-repeat="idea in ideas">
+    <h2>{{idea.name}}</h2>
+    <p>{{idea.description}}</p>
+    <p>    
+        <a href="#!/users/{{idea.author_id._id}}">{{idea.author_id.name}}</a> 
+        posted {{idea.creation_date | date:'medium'}} to 
+        <a href="#!/categories/{{idea.category_id._id}}">{{idea.category_id.name}}</a> 
+        ideas
+    </p>
+    
+    <div class="vote">
+        <span id="up"><a href="" ng-click="vote(1, idea)"><i class="fa fa-thumbs-up"></i></a> {{idea.votes_up}}</span>
+        <span id="down"><a href="" ng-click="vote(-1, idea)"><i class="fa fa-thumbs-down"></i></a> {{idea.votes_down}}</span>
+    </div>
+    </div>
+
+</div>
