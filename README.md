@@ -838,7 +838,14 @@ It generates bulk *browser.bundle.js* and contains all loopback libraries and pe
 
 in *model/model-name.json*
 
-    "trackChanges": true,
+      "strict": "validate",
+      "trackChanges": true,
+      "persistUndefinedAsNull": true,
+      "id": {
+        "id": true,
+        "type": "string",
+        "defaultFn": "guid"
+      }
 
 in *model/model-name.js*
 
